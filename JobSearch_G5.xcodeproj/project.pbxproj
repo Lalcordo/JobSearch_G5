@@ -11,6 +11,15 @@
 		0AC4D1FF2B9CF843004F8576 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D1FE2B9CF843004F8576 /* ContentView.swift */; };
 		0AC4D2012B9CF845004F8576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AC4D2002B9CF845004F8576 /* Assets.xcassets */; };
 		0AC4D2042B9CF845004F8576 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AC4D2032B9CF845004F8576 /* Preview Assets.xcassets */; };
+		DA52FCBC2B9D049900006682 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DA52FCBB2B9D049900006682 /* Alamofire */; };
+		DA52FCBE2B9D049900006682 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = DA52FCBD2B9D049900006682 /* AlamofireDynamic */; };
+		DA52FCC12B9D04A600006682 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DA52FCC02B9D04A600006682 /* SwiftyJSON */; };
+		DA52FCC32B9D052C00006682 /* JobService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52FCC22B9D052C00006682 /* JobService.swift */; };
+		DA52FCC62B9D059F00006682 /* JobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52FCC52B9D059F00006682 /* JobViewModel.swift */; };
+		DA52FCC82B9D05CC00006682 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52FCC72B9D05CC00006682 /* Job.swift */; };
+		DA52FCCA2B9D060800006682 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52FCC92B9D060800006682 /* HomePage.swift */; };
+		DA52FCCC2B9D065800006682 /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52FCCB2B9D065800006682 /* JobView.swift */; };
+		DA52FCCE2B9D09B100006682 /* JobController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52FCCD2B9D09B100006682 /* JobController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +28,12 @@
 		0AC4D1FE2B9CF843004F8576 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0AC4D2002B9CF845004F8576 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AC4D2032B9CF845004F8576 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DA52FCC22B9D052C00006682 /* JobService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobService.swift; sourceTree = "<group>"; };
+		DA52FCC52B9D059F00006682 /* JobViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewModel.swift; sourceTree = "<group>"; };
+		DA52FCC72B9D05CC00006682 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		DA52FCC92B9D060800006682 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		DA52FCCB2B9D065800006682 /* JobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
+		DA52FCCD2B9D09B100006682 /* JobController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +41,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA52FCC12B9D04A600006682 /* SwiftyJSON in Frameworks */,
+				DA52FCBC2B9D049900006682 /* Alamofire in Frameworks */,
+				DA52FCBE2B9D049900006682 /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +69,11 @@
 		0AC4D1FB2B9CF843004F8576 /* JobSearch_G5 */ = {
 			isa = PBXGroup;
 			children = (
+				DA52FCC42B9D059000006682 /* ViewModels */,
+				DA52FCB92B9D039A00006682 /* Controllers */,
+				DA52FCB82B9D039600006682 /* Views */,
+				DA52FCB72B9D039000006682 /* Models */,
+				DA52FCB62B9D034800006682 /* Services */,
 				0AC4D1FC2B9CF843004F8576 /* JobSearch_G5App.swift */,
 				0AC4D1FE2B9CF843004F8576 /* ContentView.swift */,
 				0AC4D2002B9CF845004F8576 /* Assets.xcassets */,
@@ -65,6 +88,47 @@
 				0AC4D2032B9CF845004F8576 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DA52FCB62B9D034800006682 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DA52FCC22B9D052C00006682 /* JobService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DA52FCB72B9D039000006682 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DA52FCC72B9D05CC00006682 /* Job.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DA52FCB82B9D039600006682 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DA52FCC92B9D060800006682 /* HomePage.swift */,
+				DA52FCCB2B9D065800006682 /* JobView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DA52FCB92B9D039A00006682 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DA52FCCD2B9D09B100006682 /* JobController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DA52FCC42B9D059000006682 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DA52FCC52B9D059F00006682 /* JobViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +147,11 @@
 			dependencies = (
 			);
 			name = JobSearch_G5;
+			packageProductDependencies = (
+				DA52FCBB2B9D049900006682 /* Alamofire */,
+				DA52FCBD2B9D049900006682 /* AlamofireDynamic */,
+				DA52FCC02B9D04A600006682 /* SwiftyJSON */,
+			);
 			productName = JobSearch_G5;
 			productReference = 0AC4D1F92B9CF843004F8576 /* JobSearch_G5.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +180,10 @@
 				Base,
 			);
 			mainGroup = 0AC4D1F02B9CF843004F8576;
+			packageReferences = (
+				DA52FCBA2B9D049900006682 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DA52FCBF2B9D04A600006682 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 0AC4D1FA2B9CF843004F8576 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +210,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA52FCC62B9D059F00006682 /* JobViewModel.swift in Sources */,
+				DA52FCCC2B9D065800006682 /* JobView.swift in Sources */,
+				DA52FCCA2B9D060800006682 /* HomePage.swift in Sources */,
 				0AC4D1FF2B9CF843004F8576 /* ContentView.swift in Sources */,
+				DA52FCC32B9D052C00006682 /* JobService.swift in Sources */,
+				DA52FCCE2B9D09B100006682 /* JobController.swift in Sources */,
 				0AC4D1FD2B9CF843004F8576 /* JobSearch_G5App.swift in Sources */,
+				DA52FCC82B9D05CC00006682 /* Job.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +358,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,6 +387,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -342,6 +423,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DA52FCBA2B9D049900006682 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.0;
+			};
+		};
+		DA52FCBF2B9D04A600006682 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DA52FCBB2B9D049900006682 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA52FCBA2B9D049900006682 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		DA52FCBD2B9D049900006682 /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA52FCBA2B9D049900006682 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+		DA52FCC02B9D04A600006682 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA52FCBF2B9D04A600006682 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0AC4D1F12B9CF843004F8576 /* Project object */;
 }
