@@ -52,7 +52,8 @@ struct HomeScreen: View {
                     }
                     
                     Button{
-                        selectedLink = 2
+                        self.fireAuthHelper.signOut()
+                        self.signOut()
                     } label: {
                         Text("Logout")
                     }
@@ -63,7 +64,13 @@ struct HomeScreen: View {
         }
         .navigationBarBackButtonHidden(true)
     }
+    
+    func signOut() {
+        selectedLink = 2
+    }
 }
+
+
 
 #Preview {
     HomeScreen()

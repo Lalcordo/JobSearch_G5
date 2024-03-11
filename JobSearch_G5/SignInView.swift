@@ -32,6 +32,7 @@ struct SignInView: View {
             
             VStack {
                 
+                
                 Spacer()
                 
                 Image(systemName: "flag.checkered.2.crossed")
@@ -60,7 +61,7 @@ struct SignInView: View {
                     .cornerRadius(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
                     .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
                     .keyboardType(.emailAddress)
-                //                .border(/*@START_MENU_TOKEN@*/Color.red/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/4/*@END_MENU_TOKEN@*/)
+                    .textInputAutocapitalization(.never)
                 //----------------------
                 
                 //Password Field
@@ -86,13 +87,16 @@ struct SignInView: View {
                 
                 //Login Button
                 Button {
+                    
                     if emailFromUI.isEmpty || passwordFromUI.isEmpty {
+
                         return
                     } else {
-                        
-                    //TODO: Authenticate user then go to HomeScreen()
-                        self.fireAuthHelper.signIn(email: emailFromUI, password: passwordFromUI)
-                        selectedLink = 1
+                        self.fireAuthHelper.signIn(email: emailFromUI, password: passwordFromUI, completion: {success in
+                            if success {
+                                    selectedLink = 1
+                            }
+                        })
                     }
                 } label: {
                     Text("Login")
@@ -105,14 +109,16 @@ struct SignInView: View {
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .fontWeight(/*@START_MENU_TOKEN@*/.semibold/*@END_MENU_TOKEN@*/)
                 .cornerRadius(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
-//                .alert(isPresented: $showAlert){
-//                    Alert(title: Text("\(alertTitle)"),
-//                          message: Text("\(resultMessage)"),
-//                          dismissButton: .default(Text("\(alertConfirmation)")){})
-//                }
+                //                .alert(isPresented: $showAlert){
+                //                    Alert(title: Text("\(alertTitle)"),
+                //                          message: Text("\(resultMessage)"),
+                //                          dismissButton: .default(Text("\(alertConfirmation)")){})
+                //                }
                 //----------------------
                 Spacer()
                 
+                
+                //SignUP Button
                 Button {
                     showSignUp = true
                 } label: {
@@ -133,13 +139,8 @@ struct SignInView: View {
                     emailFromUI = UserDefaults.standard.string(forKey: "KEY_EMAIL") ?? ""
                     passwordFromUI = UserDefaults.standard.string(forKey: "KEY_PASSWORD") ?? ""
                 }
-                
-                
-                //isLoggedIn conditional
-//                if userDefaults.bool(forKey: "ISLOGGEDIN_KEY") {
-//                    authenticateUser(email: "\(userDefaults.string(forKey: "USERNAME_KEY") ?? "")", password: "\(userDefaults.string(forKey: "PASSWORD_KEY") ?? "")")
-//                }
             }
+            
             
         }
         .padding()

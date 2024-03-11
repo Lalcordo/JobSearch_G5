@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @EnvironmentObject var fireAuthHelper: FireAuthHelper
+    
     var body: some View {
-        Text("Profile View")
+        Text("Welcome, \(fireAuthHelper.user?.email ?? "User")")
+        Text("Welcome, \(fireAuthHelper.user?.displayName ?? "")")
     }
 }
 

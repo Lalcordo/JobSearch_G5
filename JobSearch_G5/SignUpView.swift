@@ -22,7 +22,11 @@ struct SignUpView: View {
             Form {
                 Section {
                     TextField ("Enter Email", text: $emailFromUI)
+                        .textInputAutocapitalization(.never)
+                        .keyboardType(.emailAddress)
                     TextField ("Enter Password", text: $passwordFromUI)
+                        .keyboardType(.default)
+                        .textInputAutocapitalization(.never)
                 } header: {
                     Text("User Credentials")
                         .font(.headline)
