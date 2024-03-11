@@ -12,7 +12,8 @@ struct HomePage: View {
     let industry = "dev" // Example industry
 
     var body: some View {
-        JobView(viewModel: jobViewModel, industry: industry)
+        MapView()
+//        JobView(viewModel: jobViewModel, industry: industry)
     }
 }
 
