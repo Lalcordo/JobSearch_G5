@@ -9,14 +9,17 @@ import SwiftUI
 
 struct SignInView: View {
     
+    var fireAuthHelper: FireAuthHelper = FireAuthHelper()
+    
     //UI variables
     @State private var rememberMe = UserDefaults.standard.bool(forKey: "REMEMBER_ME")
-    @State private var userNameFromUI: String = ""
+    @State private var emailFromUI: String = ""
     @State private var passwordFromUI: String = ""
     @State private var isLoggedIn = false
     
     //Helper Variables
     @State private var selectedLink: Int? = 0
+    @State private var showSignUp = false
     
     
     
@@ -24,8 +27,8 @@ struct SignInView: View {
         NavigationStack {
             
             //Navigation Link Views
-            NavigationLink(destination: HomeScreen(), tag: 1, selection: $selectedLink){}
-            NavigationLink(destination: SignUp(), tag: 2, selection: $selectedLink){}
+            NavigationLink(destination: HomeScreen().environmentObject(fireAuthHelper), tag: 1, selection: $selectedLink){}
+            
             
             VStack {
                 
@@ -50,7 +53,7 @@ struct SignInView: View {
                 //----------------------
                 
                 //Username Field
-                TextField("Email Address", text: $userNameFromUI)
+                TextField("Email Address", text: $emailFromUI)
                     .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                     .frame(width: 250.0, height: 50.0)
                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.159)/*@END_MENU_TOKEN@*/)
@@ -83,9 +86,14 @@ struct SignInView: View {
                 
                 //Login Button
                 Button {
-//                    authenticateUser(email: userNameFromUI, password: passwordFromUI)
-                    selectedLink = 1
-                    print("\(userNameFromUI) \(passwordFromUI) \(rememberMe)")
+                    if emailFromUI.isEmpty || passwordFromUI.isEmpty {
+                        return
+                    } else {
+                        
+                    //TODO: Authenticate user then go to HomeScreen()
+                        self.fireAuthHelper.signIn(email: emailFromUI, password: passwordFromUI)
+                        selectedLink = 1
+                    }
                 } label: {
                     Text("Login")
                     
@@ -106,10 +114,13 @@ struct SignInView: View {
                 Spacer()
                 
                 Button {
-                    selectedLink = 2
+                    showSignUp = true
                 } label: {
-                    Text("Sign up")
+                    Text("Create an Account")
                 }
+                .sheet(isPresented: self.$showSignUp, content: {
+                    SignUpView(showSignUp: $showSignUp).environmentObject(fireAuthHelper)
+                })
                 Spacer()
                 
             }
@@ -117,13 +128,10 @@ struct SignInView: View {
             .navigationBarHidden(true)
             .background(Color.white)
             .onAppear{
-//                checkLoginStatus()
                 
-                
-                //Remember me conditional
-                if UserDefaults.standard.bool(forKey: "REMEMBER_ME") {
-                    userNameFromUI = UserDefaults.standard.string(forKey: "REMEMBER_USERNAME_KEY")!
-                    passwordFromUI = UserDefaults.standard.string(forKey: "REMEMBER_PASSWORD_KEY")!
+                if rememberMe {
+                    emailFromUI = UserDefaults.standard.string(forKey: "KEY_EMAIL") ?? ""
+                    passwordFromUI = UserDefaults.standard.string(forKey: "KEY_PASSWORD") ?? ""
                 }
                 
                 

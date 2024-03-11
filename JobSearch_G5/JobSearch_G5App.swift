@@ -6,9 +6,19 @@
 //
 
 import SwiftUI
+import FirebaseCore
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 @main
 struct JobSearch_G5App: App {
+    
+    //need to add this for initializing Firebase
+    init() {
+            FirebaseApp.configure()
+        }
+    
     var body: some Scene {
         WindowGroup {
             SignInView()

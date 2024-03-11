@@ -9,12 +9,15 @@ import SwiftUI
 
 struct HomeScreen: View {
     
+    @EnvironmentObject var fireAuthHelper: FireAuthHelper
     
     @State private var selectedLink: Int? = 0
+    
     var body: some View {
         
-        NavigationLink(destination: ProfileView(), tag: 1, selection: $selectedLink){}
-        NavigationLink(destination: SignInView(), tag: 2, selection: $selectedLink){}
+        //Navigation Links
+        NavigationLink(destination: ProfileView().environmentObject(fireAuthHelper), tag: 1, selection: $selectedLink){}
+        NavigationLink(destination: SignInView().environmentObject(fireAuthHelper), tag: 2, selection: $selectedLink){}
         
         
         VStack {
@@ -23,20 +26,20 @@ struct HomeScreen: View {
                 
                 SearchJobView()
                     .tabItem {
-                        Image(systemName: "list.bullet")
-                        Text("Browse Activities")
+                        Image(systemName: "magnifyingglass")
+                        Text("Browse Jobs")
                     }
                 
                 
                 BookmarkedJobsView()
                     .tabItem {
-                        Image(systemName: "suit.heart.fill")
+                        Image(systemName: "book")
                         Text("Bookmarked")
                     }
             }
             
         }
-        .navigationTitle(Text("Welcome, User"))
+        .navigationTitle(Text("Welcome, \(fireAuthHelper.user?.email ?? "User")"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing){
