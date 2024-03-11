@@ -25,12 +25,12 @@ class FireAuthHelper: ObservableObject {
         }
     }
     
-    func signUp(email: String, password: String) {
+    func signUp(email: String, password: String, firstName: String, lastName: String) {
         Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
             
             //create user through firebase, else do not continue and print error
             guard let result = authResult else {
-                print(#function, "Error while creating account: \(error)")
+                print(#function, "Error while creating account: \(error!)")
                 return
             }
             
@@ -44,15 +44,8 @@ class FireAuthHelper: ObservableObject {
                 print(#function, "Successfully created user account")
                 self.user = authResult?.user
                 
-                let changeRequest = self.user?.createProfileChangeRequest()
-                changeRequest?.displayName = "Yasuo"
-                changeRequest?.commitChanges(completion: { error in
-                    if let error = error {
-                        print("Error setting display name: \(error.localizedDescription)")
-                        return
-                    }
-                    print("Display name set successfully")
-                })
+                self.updateProfile(firstName: firstName, lastName: lastName)
+                
             }
             
         }
@@ -63,7 +56,7 @@ class FireAuthHelper: ObservableObject {
         Auth.auth().signIn(withEmail: email, password: password, completion: { [self] authResult, error in
             guard let result = authResult else {
                 completion(false)
-                print(#function, "Error while logging in: \(error)")
+                print(#function, "Error while logging in: \(error!)")
                 return
             }
             
@@ -76,7 +69,7 @@ class FireAuthHelper: ObservableObject {
             case .some(_):
                 print(#function, "Login Successful")
                 self.user = authResult?.user
-                print(#function, "Logged in user: \(self.user?.email)")
+//                print(#function, "Logged in user: \(self.user?.email!)")
                 completion(true)
                 print(completion)
             }
@@ -91,5 +84,19 @@ class FireAuthHelper: ObservableObject {
         } catch let err as NSError {
             print(#function, "Unable to sign out the user: \(err)")
         }
+    }
+    
+    func updateProfile(firstName: String, lastName: String) {
+        let changeRequest = self.user?.createProfileChangeRequest()
+        
+        changeRequest?.displayName = "\(firstName) \(lastName)"
+        
+        changeRequest?.commitChanges(completion: { error in
+            if let error = error {
+                print("Error setting display name: \(error.localizedDescription)")
+                return
+            }
+            print("Display name set successfully")
+        })
     }
 }

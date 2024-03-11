@@ -39,7 +39,7 @@ struct HomeScreen: View {
             }
             
         }
-        .navigationTitle(Text("Welcome, \(fireAuthHelper.user?.email ?? "User")"))
+        .navigationTitle(Text("Welcome, \(fireAuthHelper.user?.displayName ?? "User")"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing){

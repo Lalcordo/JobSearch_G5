@@ -15,6 +15,8 @@ struct SignUpView: View {
     @Binding var showSignUp: Bool
     @State private var emailFromUI: String = ""
     @State private var passwordFromUI: String = ""
+    @State private var fnameFromUI: String = ""
+    @State private var lnameFromUI: String = ""
     
     
     var body: some View {
@@ -33,6 +35,11 @@ struct SignUpView: View {
                 }
                 
                 Section {
+                    TextField ("First Name", text: $fnameFromUI)
+                        .keyboardType(.default)
+                    
+                    TextField ("Last Name", text: $lnameFromUI)
+                        .keyboardType(.default)
                     
                 } header: {
                     Text("Personal Information")
@@ -42,11 +49,10 @@ struct SignUpView: View {
             
             Button {
                 
-            //TODO: MAke an account function
-                if emailFromUI.isEmpty || passwordFromUI.isEmpty {
+                if emailFromUI.isEmpty || passwordFromUI.isEmpty || fnameFromUI.isEmpty || lnameFromUI.isEmpty {
                     return
                 } else {
-                    fireAuthHelper.signUp(email: emailFromUI, password: passwordFromUI)
+                    fireAuthHelper.signUp(email: emailFromUI, password: passwordFromUI, firstName: fnameFromUI, lastName: lnameFromUI)
                     showSignUp = false
                 }
                 

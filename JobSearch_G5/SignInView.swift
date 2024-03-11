@@ -12,14 +12,19 @@ struct SignInView: View {
     var fireAuthHelper: FireAuthHelper = FireAuthHelper()
     
     //UI variables
-    @State private var rememberMe = UserDefaults.standard.bool(forKey: "REMEMBER_ME")
+    @State private var rememberMe = false
     @State private var emailFromUI: String = ""
     @State private var passwordFromUI: String = ""
-    @State private var isLoggedIn = false
     
     //Helper Variables
     @State private var selectedLink: Int? = 0
     @State private var showSignUp = false
+    
+    //Show Alert variables
+    @State private var showAlert: Bool = false
+    @State private var alertTitle = ""
+    @State private var resultMessage: String = ""
+    @State private var alertConfirmation: String = ""
     
     
     
@@ -35,7 +40,7 @@ struct SignInView: View {
                 
                 Spacer()
                 
-                Image(systemName: "flag.checkered.2.crossed")
+                Image(systemName: "doc.text.magnifyingglass")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 200.0, height: 200.0)
@@ -81,7 +86,7 @@ struct SignInView: View {
                     .frame(width: 250.0, height: 50.0)
                     .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
                     .font(/*@START_MENU_TOKEN@*/.body/*@END_MENU_TOKEN@*/)
-                    .toggleStyle(SwitchToggleStyle(tint: .red))
+                    .toggleStyle(SwitchToggleStyle(tint: .blue))
                 
                 //----------------------
                 
@@ -89,12 +94,30 @@ struct SignInView: View {
                 Button {
                     
                     if emailFromUI.isEmpty || passwordFromUI.isEmpty {
-
+                        showAlert = true
+                        alertTitle = "INVALID CREDENTIALS"
+                        resultMessage = "Fields cannot be empty!"
+                        alertConfirmation = "CONFIRM"
                         return
                     } else {
                         self.fireAuthHelper.signIn(email: emailFromUI, password: passwordFromUI, completion: {success in
                             if success {
-                                    selectedLink = 1
+                                if rememberMe {
+                                    UserDefaults.standard.set(rememberMe, forKey: "KEY_REMEMBERME")
+                                    UserDefaults.standard.set(emailFromUI, forKey: "KEY_EMAIL")
+                                    UserDefaults.standard.set(passwordFromUI, forKey: "KEY_PASSWORD")
+                                } else {
+                                    UserDefaults.standard.removeObject(forKey: "KEY_REMEMBERME")
+                                    UserDefaults.standard.removeObject(forKey: "KEY_EMAIL")
+                                    UserDefaults.standard.removeObject(forKey: "KEY_PASSWORD")
+                                }
+                                selectedLink = 1
+                            } else {
+                                showAlert = true
+                                alertTitle = "INVALID CREDENTIALS"
+                                resultMessage = "Email or Password is incorrect"
+                                alertConfirmation = "TRY AGAIN"
+                                return
                             }
                         })
                     }
@@ -104,25 +127,29 @@ struct SignInView: View {
                 }
                 .padding()
                 .frame(width: 150.0, height: 50.0)
-                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.128, green: 0.262, blue: 0.337)/*@END_MENU_TOKEN@*/)
+                .background(.blue)
                 .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .fontWeight(/*@START_MENU_TOKEN@*/.semibold/*@END_MENU_TOKEN@*/)
                 .cornerRadius(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
-                //                .alert(isPresented: $showAlert){
-                //                    Alert(title: Text("\(alertTitle)"),
-                //                          message: Text("\(resultMessage)"),
-                //                          dismissButton: .default(Text("\(alertConfirmation)")){})
-                //                }
+                .alert(isPresented: $showAlert){
+                    Alert(title: Text("\(alertTitle)"),
+                          message: Text("\(resultMessage)"),
+                          dismissButton: .default(Text("\(alertConfirmation)")){})
+                }
                 //----------------------
                 Spacer()
                 
-                
+                Text("Don't have an Account?")
+                    .font(.caption2)
+                    .fontWeight(.light)
+                    .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .trailing]/*@END_MENU_TOKEN@*/)
+                    .italic()
                 //SignUP Button
                 Button {
                     showSignUp = true
                 } label: {
-                    Text("Create an Account")
+                    Text("Register Here")
                 }
                 .sheet(isPresented: self.$showSignUp, content: {
                     SignUpView(showSignUp: $showSignUp).environmentObject(fireAuthHelper)
@@ -135,9 +162,9 @@ struct SignInView: View {
             .background(Color.white)
             .onAppear{
                 
-                if rememberMe {
-                    emailFromUI = UserDefaults.standard.string(forKey: "KEY_EMAIL") ?? ""
-                    passwordFromUI = UserDefaults.standard.string(forKey: "KEY_PASSWORD") ?? ""
+                if UserDefaults.standard.bool(forKey: "KEY_REMEMBERME") {
+                    emailFromUI = UserDefaults.standard.string(forKey: "KEY_EMAIL")!
+                    passwordFromUI = UserDefaults.standard.string(forKey: "KEY_PASSWORD")!
                 }
             }
             
