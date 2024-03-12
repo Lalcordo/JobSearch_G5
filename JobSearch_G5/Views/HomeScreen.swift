@@ -24,13 +24,14 @@ struct HomeScreen: View {
             
             TabView {
                 
-                MapView()
+                JobView(viewModel: JobViewModel(), industry: "dev")
                     .tabItem {
                         Image(systemName: "magnifyingglass")
                         Text("Browse Jobs")
                     }
                 
                 
+                //Gagan 
                 BookmarkedJobsView()
                     .tabItem {
                         Image(systemName: "book")
