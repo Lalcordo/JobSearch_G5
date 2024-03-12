@@ -24,7 +24,7 @@ struct HomeScreen: View {
             
             TabView {
                 
-                SearchJobView()
+                MapView()
                     .tabItem {
                         Image(systemName: "magnifyingglass")
                         Text("Browse Jobs")
@@ -37,6 +37,7 @@ struct HomeScreen: View {
                         Text("Bookmarked")
                     }
             }
+            .padding(0)
             
         }
         .navigationTitle(Text("Welcome, \(fireAuthHelper.user?.displayName ?? "User")"))

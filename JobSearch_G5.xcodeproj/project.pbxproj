@@ -18,6 +18,15 @@
 		0AC4D2562B9E1B9D004F8576 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2552B9E1B9D004F8576 /* ProfileView.swift */; };
 		0AC4D2B12B9E3967004F8576 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC4D2B02B9E3967004F8576 /* GoogleService-Info.plist */; };
 		0AC4D2B32B9E408B004F8576 /* FireAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2B22B9E408B004F8576 /* FireAuthHelper.swift */; };
+		0AC4D2DA2B9FE208004F8576 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2D92B9FE208004F8576 /* Job.swift */; };
+		0AC4D2DD2B9FE229004F8576 /* JobService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2DC2B9FE229004F8576 /* JobService.swift */; };
+		0AC4D2DF2B9FE268004F8576 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2DE2B9FE268004F8576 /* MapView.swift */; };
+		0AC4D2E12B9FE27F004F8576 /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2E02B9FE27E004F8576 /* JobView.swift */; };
+		0AC4D2E32B9FE28C004F8576 /* JobController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2E22B9FE28C004F8576 /* JobController.swift */; };
+		0AC4D2E52B9FE29C004F8576 /* JobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2E42B9FE29C004F8576 /* JobViewModel.swift */; };
+		0AC4D2E82B9FE2AF004F8576 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0AC4D2E72B9FE2AF004F8576 /* Alamofire */; };
+		0AC4D2EA2B9FE2AF004F8576 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0AC4D2E92B9FE2AF004F8576 /* AlamofireDynamic */; };
+		0AC4D2ED2B9FE2C1004F8576 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0AC4D2EC2B9FE2C1004F8576 /* SwiftyJSON */; };
 		DA52FCF92B9FDF9A00006682 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DA52FCF82B9FDF9A00006682 /* FirebaseAuth */; };
 		DA52FCFB2B9FDFA000006682 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DA52FCFA2B9FDFA000006682 /* FirebaseStorage */; };
 		DA52FCFD2B9FDFA800006682 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DA52FCFC2B9FDFA800006682 /* FirebaseFirestore */; };
@@ -37,6 +46,12 @@
 		0AC4D2552B9E1B9D004F8576 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		0AC4D2B02B9E3967004F8576 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0AC4D2B22B9E408B004F8576 /* FireAuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAuthHelper.swift; sourceTree = "<group>"; };
+		0AC4D2D92B9FE208004F8576 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		0AC4D2DC2B9FE229004F8576 /* JobService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobService.swift; sourceTree = "<group>"; };
+		0AC4D2DE2B9FE268004F8576 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		0AC4D2E02B9FE27E004F8576 /* JobView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
+		0AC4D2E22B9FE28C004F8576 /* JobController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobController.swift; sourceTree = "<group>"; };
+		0AC4D2E42B9FE29C004F8576 /* JobViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AC4D2E82B9FE2AF004F8576 /* Alamofire in Frameworks */,
+				0AC4D2ED2B9FE2C1004F8576 /* SwiftyJSON in Frameworks */,
+				0AC4D2EA2B9FE2AF004F8576 /* AlamofireDynamic in Frameworks */,
 				DA52FCF92B9FDF9A00006682 /* FirebaseAuth in Frameworks */,
 				DA52FCFB2B9FDFA000006682 /* FirebaseStorage in Frameworks */,
 				DA52FCFD2B9FDFA800006682 /* FirebaseFirestore in Frameworks */,
@@ -74,18 +92,14 @@
 		0AC4D1FB2B9CF843004F8576 /* JobSearch_G5 */ = {
 			isa = PBXGroup;
 			children = (
-				DA52FD002B9FE02D00006682 /* New Group */,
+				0AC4D2DB2B9FE21A004F8576 /* Services */,
+				0AC4D2D62B9FE113004F8576 /* Models */,
+				0AC4D2D72B9FE11F004F8576 /* Views */,
+				0AC4D2D82B9FE125004F8576 /* Controllers */,
 				0AC4D2B02B9E3967004F8576 /* GoogleService-Info.plist */,
 				0AC4D1FC2B9CF843004F8576 /* JobSearch_G5App.swift */,
-				0AC4D1FE2B9CF843004F8576 /* SignInView.swift */,
 				0AC4D2002B9CF845004F8576 /* Assets.xcassets */,
 				0AC4D2022B9CF845004F8576 /* Preview Content */,
-				0AC4D20A2B9E0FF6004F8576 /* HomeScreen.swift */,
-				0AC4D20C2B9E1071004F8576 /* SignUpView.swift */,
-				0AC4D2512B9E1A9E004F8576 /* SearchJobView.swift */,
-				0AC4D2532B9E1B10004F8576 /* BookmarkedJobsView.swift */,
-				0AC4D2552B9E1B9D004F8576 /* ProfileView.swift */,
-				0AC4D2B22B9E408B004F8576 /* FireAuthHelper.swift */,
 			);
 			path = JobSearch_G5;
 			sourceTree = "<group>";
@@ -98,18 +112,52 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		0AC4D2D62B9FE113004F8576 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0AC4D2D92B9FE208004F8576 /* Job.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0AC4D2D72B9FE11F004F8576 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AC4D2E42B9FE29C004F8576 /* JobViewModel.swift */,
+				0AC4D2DE2B9FE268004F8576 /* MapView.swift */,
+				0AC4D1FE2B9CF843004F8576 /* SignInView.swift */,
+				0AC4D2E02B9FE27E004F8576 /* JobView.swift */,
+				0AC4D20A2B9E0FF6004F8576 /* HomeScreen.swift */,
+				0AC4D20C2B9E1071004F8576 /* SignUpView.swift */,
+				0AC4D2512B9E1A9E004F8576 /* SearchJobView.swift */,
+				0AC4D2532B9E1B10004F8576 /* BookmarkedJobsView.swift */,
+				0AC4D2552B9E1B9D004F8576 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0AC4D2D82B9FE125004F8576 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0AC4D2B22B9E408B004F8576 /* FireAuthHelper.swift */,
+				0AC4D2E22B9FE28C004F8576 /* JobController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0AC4D2DB2B9FE21A004F8576 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0AC4D2DC2B9FE229004F8576 /* JobService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		DA52FCF72B9FDF9A00006682 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DA52FD002B9FE02D00006682 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +181,9 @@
 				DA52FCFA2B9FDFA000006682 /* FirebaseStorage */,
 				DA52FCFC2B9FDFA800006682 /* FirebaseFirestore */,
 				DA52FCFE2B9FDFB000006682 /* FirebaseFirestoreSwift */,
+				0AC4D2E72B9FE2AF004F8576 /* Alamofire */,
+				0AC4D2E92B9FE2AF004F8576 /* AlamofireDynamic */,
+				0AC4D2EC2B9FE2C1004F8576 /* SwiftyJSON */,
 			);
 			productName = JobSearch_G5;
 			productReference = 0AC4D1F92B9CF843004F8576 /* JobSearch_G5.app */;
@@ -164,6 +215,8 @@
 			mainGroup = 0AC4D1F02B9CF843004F8576;
 			packageReferences = (
 				0AC4D2A52B9E3290004F8576 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0AC4D2E62B9FE2AE004F8576 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0AC4D2EB2B9FE2C0004F8576 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 0AC4D1FA2B9CF843004F8576 /* Products */;
 			projectDirPath = "";
@@ -193,10 +246,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AC4D1FF2B9CF843004F8576 /* SignInView.swift in Sources */,
+				0AC4D2DD2B9FE229004F8576 /* JobService.swift in Sources */,
+				0AC4D2E52B9FE29C004F8576 /* JobViewModel.swift in Sources */,
 				0AC4D2542B9E1B10004F8576 /* BookmarkedJobsView.swift in Sources */,
+				0AC4D2DF2B9FE268004F8576 /* MapView.swift in Sources */,
 				0AC4D20D2B9E1071004F8576 /* SignUpView.swift in Sources */,
 				0AC4D2522B9E1A9E004F8576 /* SearchJobView.swift in Sources */,
+				0AC4D2E12B9FE27F004F8576 /* JobView.swift in Sources */,
+				0AC4D2DA2B9FE208004F8576 /* Job.swift in Sources */,
 				0AC4D1FD2B9CF843004F8576 /* JobSearch_G5App.swift in Sources */,
+				0AC4D2E32B9FE28C004F8576 /* JobController.swift in Sources */,
 				0AC4D2562B9E1B9D004F8576 /* ProfileView.swift in Sources */,
 				0AC4D20B2B9E0FF6004F8576 /* HomeScreen.swift in Sources */,
 				0AC4D2B32B9E408B004F8576 /* FireAuthHelper.swift in Sources */,
@@ -415,9 +474,40 @@
 				minimumVersion = 10.22.1;
 			};
 		};
+		0AC4D2E62B9FE2AE004F8576 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.0;
+			};
+		};
+		0AC4D2EB2B9FE2C0004F8576 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0AC4D2E72B9FE2AF004F8576 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AC4D2E62B9FE2AE004F8576 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		0AC4D2E92B9FE2AF004F8576 /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AC4D2E62B9FE2AE004F8576 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+		0AC4D2EC2B9FE2C1004F8576 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AC4D2EB2B9FE2C0004F8576 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		DA52FCF82B9FDF9A00006682 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0AC4D2A52B9E3290004F8576 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
