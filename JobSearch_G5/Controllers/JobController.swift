@@ -15,8 +15,8 @@ class JobController {
         self.jobService = jobService
     }
     
-    func fetchJobs(tag: String, completion: @escaping ([Job]?, Error?) -> Void) {
-        jobService.fetchJobs(tag: tag) { jobs, error in
+    func fetchJobs(tag: String, geo: String, completion: @escaping ([Job]?, Error?) -> Void) {
+        jobService.fetchJobs(tag: tag, geo: geo) { jobs, error in
             if let jobs = jobs {
                 DispatchQueue.main.async {
                     completion(jobs, nil)

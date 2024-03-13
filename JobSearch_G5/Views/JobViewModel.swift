@@ -15,9 +15,9 @@ class JobViewModel: ObservableObject {
     let jobController = JobController(jobService: JobService())
     let db = Firestore.firestore()
     
-    func fetchJobs(tag: String) {
+    func fetchJobs(tag: String, geo: String) {
         
-        jobController.fetchJobs(tag: tag) { jobs, error in
+        jobController.fetchJobs(tag: tag, geo: geo) { jobs, error in
             if let jobs = jobs {
                 // Handle fetched jobs
                 print(#function, jobs)

@@ -34,6 +34,7 @@
 		DA52FCFF2B9FDFB000006682 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DA52FCFE2B9FDFB000006682 /* FirebaseFirestoreSwift */; };
 		DA648E192B9FF2F20048042D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DA648E182B9FF2F20048042D /* FirebaseAuth */; };
 		DA7BA08B2BA18C81003AA924 /* JobDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7BA08A2BA18C81003AA924 /* JobDetailsView.swift */; };
+		DA7BA08D2BA227A5003AA924 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7BA08C2BA227A5003AA924 /* FilterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		0AC4D2E22B9FE28C004F8576 /* JobController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobController.swift; sourceTree = "<group>"; };
 		0AC4D2E42B9FE29C004F8576 /* JobViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobViewModel.swift; sourceTree = "<group>"; };
 		DA7BA08A2BA18C81003AA924 /* JobDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsView.swift; sourceTree = "<group>"; };
+		DA7BA08C2BA227A5003AA924 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				0AC4D2532B9E1B10004F8576 /* BookmarkedJobsView.swift */,
 				0AC4D2552B9E1B9D004F8576 /* ProfileView.swift */,
 				DA7BA08A2BA18C81003AA924 /* JobDetailsView.swift */,
+				DA7BA08C2BA227A5003AA924 /* FilterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				0AC4D1FD2B9CF843004F8576 /* JobSearch_G5App.swift in Sources */,
 				0AC4D2E32B9FE28C004F8576 /* JobController.swift in Sources */,
 				0AC4D2562B9E1B9D004F8576 /* ProfileView.swift in Sources */,
+				DA7BA08D2BA227A5003AA924 /* FilterView.swift in Sources */,
 				DA7BA08B2BA18C81003AA924 /* JobDetailsView.swift in Sources */,
 				0AC4D20B2B9E0FF6004F8576 /* HomeScreen.swift in Sources */,
 				0AC4D2B32B9E408B004F8576 /* FireAuthHelper.swift in Sources */,

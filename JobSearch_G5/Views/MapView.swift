@@ -14,6 +14,12 @@ struct MapView: View {
     @State var camera: MapCameraPosition = .automatic
     @State private var searchText: String = ""
     @State private var timer: Timer? = nil
+    @State private var showFilter: Bool = false
+    
+    @State private var selectedGeoOption: GeoOption?
+
+
+    @Environment(\.dismiss) var dismiss
     
     
     let defaultPinURL = "https://seeklogo.com/images/M/map-pin-logo-724AC2A023-seeklogo.com.png"
@@ -37,7 +43,6 @@ struct MapView: View {
             
         }.safeAreaInset(edge: .top) {
             HStack {
-                
                 ZStack(alignment: .leading) {
                     Color.white
                         .cornerRadius(20)
@@ -60,7 +65,7 @@ struct MapView: View {
                                 // Start a new timer to delay API call
                                 timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
                                     // Perform API call with newValue
-                                    viewModel.fetchJobs(tag: newValue)
+                                    viewModel.fetchJobs(tag: newValue, geo: selectedGeoOption?.value ?? "")
                                 }
                                 
                             }
@@ -68,7 +73,9 @@ struct MapView: View {
                             .resizable()
                             .frame(width: 20, height: 20)
                             .padding(.trailing, 15)
-                            .foregroundColor(Color(UIColor.systemGray3))
+                            .foregroundColor(Color(UIColor.systemGray3)).onTapGesture {
+                                self.showFilter = true
+                            }
                         
                     }
                 }   .padding()
@@ -77,14 +84,16 @@ struct MapView: View {
             }
         }
         .onAppear {
-            viewModel.fetchJobs(tag: searchText)
+            viewModel.fetchJobs(tag: searchText, geo: "")
         }
+        .sheet(isPresented: $showFilter, onDismiss: {
+            print(#function, "dismiss")
+            viewModel.fetchJobs(tag: searchText, geo: selectedGeoOption?.value ?? "")
+        }, content: {
+            FilterView(selectedGeoOption: $selectedGeoOption).presentationDetents([.medium])
+        })
         .sheet(item: $selectedJob) { job in
             JobDetailsView(job: job, viewModel: viewModel)
         }
     }
-    
-    
-    
 }
-

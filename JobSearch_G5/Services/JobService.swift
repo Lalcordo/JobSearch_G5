@@ -12,9 +12,11 @@ import MapKit
 
 
 class JobService {
-    func fetchJobs(tag: String, completion: @escaping ([Job]?, Error?) -> Void) {
-        let apiURL = "https://jobicy.com/api/v2/remote-jobs?count=20" + (tag.isEmpty ? "" : "&tag=\(tag)")
-        
+    func fetchJobs(tag: String, geo: String, completion: @escaping ([Job]?, Error?) -> Void) {
+        let tagParam = tag.isEmpty ? "" : "&tag=\(tag)"
+        let geoParam = geo.isEmpty ? "" : "&geo=\(geo)"
+        let apiURL = "https://jobicy.com/api/v2/remote-jobs?count=20\(tagParam)\(geoParam)"
+        print("APIURL", apiURL)
         AF.request(apiURL).responseJSON { response in
             switch response.result {
             case .success(let responseData):
