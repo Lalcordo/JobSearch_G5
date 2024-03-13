@@ -40,11 +40,11 @@ struct SignInView: View {
                 
                 Spacer()
                 
-                Image(systemName: "doc.text.magnifyingglass")
+                Image("Logo")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 200.0, height: 200.0)
-                    .clipShape(Circle())
+//                    .clipShape(Circle())
                     .overlay(
                         Circle()
                             .stroke(Color.black, lineWidth: 0)

@@ -24,7 +24,6 @@ struct JobSearch_G5App: App {
     var body: some Scene {
         WindowGroup {
             SignInView()
-            
         }
     }
 }

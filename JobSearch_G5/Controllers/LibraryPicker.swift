@@ -21,7 +21,7 @@ struct LibraryPicker: UIViewControllerRepresentable{
         configuration.filter = .images
         configuration.selectionLimit = 1
         
-        var imagePicker = PHPickerViewController(configuration: configuration)
+        let imagePicker = PHPickerViewController(configuration: configuration)
         imagePicker.delegate = context.coordinator
         return imagePicker
     }
@@ -66,12 +66,12 @@ struct LibraryPicker: UIViewControllerRepresentable{
                             let identifiers = results.compactMap(\.assetIdentifier)
                             let fetchResults = PHAsset.fetchAssets(withLocalIdentifiers: identifiers, options: nil)
                             let imageMetaData = fetchResults.firstObject
-                            print(#function, "Duration: \(imageMetaData?.duration)")
-                            print(#function, "Location: \(imageMetaData?.location)")
-                            print(#function, "Pixel Width: \(imageMetaData?.pixelWidth)")
-                            print(#function, "Pixel Height: \(imageMetaData?.pixelHeight)")
-                            print(#function, "isFavourite: \(imageMetaData?.isFavorite)")
-                            print(#function, "Creation Date: \(imageMetaData?.creationDate)")
+                            print(#function, "Duration: \(imageMetaData?.duration ?? 0.0)")
+                            print(#function, "Location: \(imageMetaData?.location ?? CLLocation(latitude: 43.0, longitude: 39.0))")
+                            print(#function, "Pixel Width: \(imageMetaData?.pixelWidth ?? 0)")
+                            print(#function, "Pixel Height: \(imageMetaData?.pixelHeight ?? 0)")
+                            print(#function, "isFavourite: \(imageMetaData?.isFavorite ?? false)")
+                            print(#function, "Creation Date: \(imageMetaData?.creationDate ?? Date())")
                             
                             self.parent.selectedImage = img as? UIImage
                         }
