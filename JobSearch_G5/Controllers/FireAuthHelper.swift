@@ -25,12 +25,13 @@ class FireAuthHelper: ObservableObject {
         }
     }
     
-    func signUp(email: String, password: String, firstName: String, lastName: String) {
+    func signUp(email: String, password: String, firstName: String, lastName: String, completion: @escaping (Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
             
             //create user through firebase, else do not continue and print error
             guard let result = authResult else {
                 print(#function, "Error while creating account: \(error!)")
+                completion(false)
                 return
             }
             
@@ -39,15 +40,16 @@ class FireAuthHelper: ObservableObject {
             
             switch authResult {
             case .none:
+                completion(false)
                 print(#function, "Unable to create the account")
             case .some(_):
                 print(#function, "Successfully created user account")
                 self.user = authResult?.user
                 
                 self.updateProfile(firstName: firstName, lastName: lastName)
+                completion(true)
                 
             }
-            
         }
     }
     
@@ -69,7 +71,7 @@ class FireAuthHelper: ObservableObject {
             case .some(_):
                 print(#function, "Login Successful")
                 self.user = authResult?.user
-//                print(#function, "Logged in user: \(self.user?.email!)")
+                //                print(#function, "Logged in user: \(self.user?.email!)")
                 completion(true)
                 print(completion)
             }

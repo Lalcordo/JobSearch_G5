@@ -15,8 +15,16 @@ struct SignUpView: View {
     @Binding var showSignUp: Bool
     @State private var emailFromUI: String = ""
     @State private var passwordFromUI: String = ""
+    @State private var reenterPasswordFromUI: String = ""
     @State private var fnameFromUI: String = ""
     @State private var lnameFromUI: String = ""
+    
+    //Show alert variables
+    //Show Alert variables
+    @State private var showAlert: Bool = false
+    @State private var alertTitle = ""
+    @State private var resultMessage: String = ""
+    @State private var alertConfirmation: String = ""
     
     
     var body: some View {
@@ -26,9 +34,14 @@ struct SignUpView: View {
                     TextField ("Enter Email", text: $emailFromUI)
                         .textInputAutocapitalization(.never)
                         .keyboardType(.emailAddress)
-                    TextField ("Enter Password", text: $passwordFromUI)
+                    SecureField ("Enter Password", text: $passwordFromUI)
+                        .keyboardType(.default)
+                        .autocorrectionDisabled(true)
+                        .textInputAutocapitalization(.never)
+                    SecureField ("Re-enter Password", text: $reenterPasswordFromUI)
                         .keyboardType(.default)
                         .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled(true)
                 } header: {
                     Text("User Credentials")
                         .font(.headline)
@@ -42,18 +55,48 @@ struct SignUpView: View {
                         .keyboardType(.default)
                     
                 } header: {
-                    Text("Personal Information")
+                    Text("Contact Information")
                         .font(.headline)
                 }
             }
             
             Button {
                 
-                if emailFromUI.isEmpty || passwordFromUI.isEmpty || fnameFromUI.isEmpty || lnameFromUI.isEmpty {
+                if emailFromUI.isEmpty || passwordFromUI.isEmpty || reenterPasswordFromUI.isEmpty || fnameFromUI.isEmpty || lnameFromUI.isEmpty {
+                    
+                    showAlert = true
+                    alertTitle = "CAUTION!"
+                    resultMessage = "Fields cannot be empty."
+                    alertConfirmation = "TRY AGAIN"
+                    
                     return
+                    
+                } else if passwordFromUI != reenterPasswordFromUI {
+                    showAlert = true
+                    alertTitle = "INVALID CREDENTIALS"
+                    resultMessage = "Password didn't match."
+                    alertConfirmation = "TRY AGAIN"
+                    return
+                    
                 } else {
-                    fireAuthHelper.signUp(email: emailFromUI, password: passwordFromUI, firstName: fnameFromUI, lastName: lnameFromUI)
-                    showSignUp = false
+                    fireAuthHelper.signUp(email: emailFromUI, password: passwordFromUI, firstName: fnameFromUI, lastName: lnameFromUI, completion: { success in
+                        
+                        if success {
+                            showAlert = true
+                            alertTitle = "SUCCESS!"
+                            resultMessage = "Account created"
+                            alertConfirmation = "CONFIRM"
+                        } else {
+                            showAlert = true
+                            alertTitle = "CAUTION"
+                            resultMessage = "Account was not successfully created. Check your email or password"
+                            alertConfirmation = "OK"
+                        }
+                        
+                    })
+                    
+                    
+
                 }
                 
             } label: {
@@ -63,6 +106,16 @@ struct SignUpView: View {
             .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.blue/*@END_MENU_TOKEN@*/)
             .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
             .cornerRadius(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
+            .alert(isPresented: $showAlert){
+                Alert(title: Text("\(alertTitle)"),
+                      message: Text("\(resultMessage)"),
+                      dismissButton: .default(Text("\(alertConfirmation)")){
+                    if alertConfirmation == "CONFIRM" {
+                        showSignUp = false
+                    }
+                    
+                })
+            }
             
             Spacer()
         }

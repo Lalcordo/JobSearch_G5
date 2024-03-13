@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A7D1D8D2BA2053900BAE2F3 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D1D8C2BA2053900BAE2F3 /* CameraPicker.swift */; };
+		0A7D1D8F2BA2054400BAE2F3 /* LibraryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D1D8E2BA2054400BAE2F3 /* LibraryPicker.swift */; };
 		0AC4D1FD2B9CF843004F8576 /* JobSearch_G5App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D1FC2B9CF843004F8576 /* JobSearch_G5App.swift */; };
 		0AC4D1FF2B9CF843004F8576 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D1FE2B9CF843004F8576 /* SignInView.swift */; };
 		0AC4D2012B9CF845004F8576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AC4D2002B9CF845004F8576 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A7D1D8C2BA2053900BAE2F3 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
+		0A7D1D8E2BA2054400BAE2F3 /* LibraryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPicker.swift; sourceTree = "<group>"; };
 		0AC4D1F92B9CF843004F8576 /* JobSearch_G5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobSearch_G5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AC4D1FC2B9CF843004F8576 /* JobSearch_G5App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearch_G5App.swift; sourceTree = "<group>"; };
 		0AC4D1FE2B9CF843004F8576 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 			children = (
 				0AC4D2B22B9E408B004F8576 /* FireAuthHelper.swift */,
 				0AC4D2E22B9FE28C004F8576 /* JobController.swift */,
+				0A7D1D8C2BA2053900BAE2F3 /* CameraPicker.swift */,
+				0A7D1D8E2BA2054400BAE2F3 /* LibraryPicker.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -250,8 +256,10 @@
 			files = (
 				0AC4D1FF2B9CF843004F8576 /* SignInView.swift in Sources */,
 				0AC4D2DD2B9FE229004F8576 /* JobService.swift in Sources */,
+				0A7D1D8F2BA2054400BAE2F3 /* LibraryPicker.swift in Sources */,
 				0AC4D2E52B9FE29C004F8576 /* JobViewModel.swift in Sources */,
 				0AC4D2542B9E1B10004F8576 /* BookmarkedJobsView.swift in Sources */,
+				0A7D1D8D2BA2053900BAE2F3 /* CameraPicker.swift in Sources */,
 				0AC4D2DF2B9FE268004F8576 /* MapView.swift in Sources */,
 				0AC4D20D2B9E1071004F8576 /* SignUpView.swift in Sources */,
 				0AC4D2522B9E1A9E004F8576 /* SearchJobView.swift in Sources */,
@@ -398,6 +406,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"JobSearch_G5/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs to access Camera.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs to access Photo Library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -427,6 +437,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"JobSearch_G5/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs to access Camera.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs to access Photo Library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
