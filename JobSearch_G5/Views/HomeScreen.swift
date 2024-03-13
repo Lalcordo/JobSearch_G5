@@ -23,22 +23,20 @@ struct HomeScreen: View {
         VStack {
             
             TabView {
-                
-                JobView(viewModel: JobViewModel(), industry: "dev")
-                    .tabItem {
-                        Image(systemName: "magnifyingglass")
-                        Text("Browse Jobs")
-                    }
+                MapView(viewModel: JobViewModel()).tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Browse Jobs")
+                }.background(Color.red)
                 
                 
-                //Gagan 
+                
                 BookmarkedJobsView()
                     .tabItem {
                         Image(systemName: "book")
                         Text("Bookmarked")
                     }
+                
             }
-            .padding(0)
             
         }
         .navigationTitle(Text("Welcome, \(fireAuthHelper.user?.displayName ?? "User")"))
@@ -65,6 +63,7 @@ struct HomeScreen: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        
     }
     
     func signOut() {

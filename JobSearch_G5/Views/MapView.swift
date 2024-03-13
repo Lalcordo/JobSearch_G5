@@ -7,122 +7,84 @@
 import SwiftUI
 import MapKit
 
+
 struct MapView: View {
-    @State private var annotations: [MKPointAnnotation] = []
+    @ObservedObject var viewModel: JobViewModel
+    @State private var selectedJob: Job?
+    @State var camera: MapCameraPosition = .automatic
+    @State private var searchText: String = ""
+    @State private var timer: Timer? = nil
+    
+    
+    let defaultPinURL = "https://seeklogo.com/images/M/map-pin-logo-724AC2A023-seeklogo.com.png"
     
     var body: some View {
-        MyMap(annotations: annotations)
-            .onAppear {
-                addAnnotations()
+        Map(position: $camera){
+            ForEach(viewModel.jobs) { job in
+                Annotation(job.title, coordinate: CLLocationCoordinate2D(latitude: job.latitude, longitude: job.longitude)) {
+                    AsyncImage(url: URL(string: job.companyLogo?.absoluteString ?? defaultPinURL)) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 30, height: 30)
+                    } placeholder: {
+                        ProgressView()
+                    }.onTapGesture {
+                        selectedJob = job
+                    }
+                }
             }
+            
+        }.safeAreaInset(edge: .top) {
+            HStack {
+                
+                ZStack(alignment: .leading) {
+                    Color.white
+                        .cornerRadius(20)
+                        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .padding(.leading, 15)
+                            .foregroundColor(Color(UIColor.systemGray3))
+                        
+                        
+                        TextField("Search here", text: $searchText)
+                            .padding(10)
+                            .background(Color.clear)
+                            .cornerRadius(10)
+                            .onChange(of: searchText) { newValue in
+                                // Cancel previous timer
+                                timer?.invalidate()
+                                // Start a new timer to delay API call
+                                timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
+                                    // Perform API call with newValue
+                                    viewModel.fetchJobs(tag: newValue)
+                                }
+                                
+                            }
+                        Image(systemName: "line.3.horizontal.decrease.circle")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .padding(.trailing, 15)
+                            .foregroundColor(Color(UIColor.systemGray3))
+                        
+                    }
+                }   .padding()
+                    .frame(width: 360, height: 46)
+                    .padding(.top)
+            }
+        }
+        .onAppear {
+            viewModel.fetchJobs(tag: searchText)
+        }
+        .sheet(item: $selectedJob) { job in
+            JobDetailsView(job: job, viewModel: viewModel)
+        }
     }
     
-    func addAnnotations() {
-        let yorkvilleAnnotation = MKPointAnnotation()
-        yorkvilleAnnotation.coordinate = CLLocationCoordinate2D(latitude: 43.6708, longitude: -79.3935)
-        yorkvilleAnnotation.title = "Software Engineer"
-        yorkvilleAnnotation.subtitle = "yorkvilleImage"
-        
-        let churchAndWellesleyAnnotation = MKPointAnnotation()
-        churchAndWellesleyAnnotation.coordinate = CLLocationCoordinate2D(latitude: 43.6657, longitude: -79.3804)
-        churchAndWellesleyAnnotation.title = "Software Developer"
-                churchAndWellesleyAnnotation.subtitle = "churchAndWellesleyImage"
-        
-//        let romAnnotation = MKPointAnnotation()
-//               romAnnotation.coordinate = CLLocationCoordinate2D(latitude: 36.632570, longitude: -82.142170)
-//               romAnnotation.title = "asdasdasda"
-//        romAnnotation.subtitle = "asdasdasda"
-
-               
-        annotations.append(yorkvilleAnnotation)
-        annotations.append(churchAndWellesleyAnnotation)
-//        annotations.append(romAnnotation) // Add ROM annotation
-
-    }
+    
+    
 }
 
-struct MyMap: UIViewRepresentable {
-    typealias UIViewType = MKMapView
-    var annotations: [MKPointAnnotation]
-    
-    func makeUIView(context: Context) -> MKMapView {
-        let map = MKMapView(frame: .zero)
-        map.mapType = .standard
-        map.isZoomEnabled = true
-        map.isUserInteractionEnabled = true
-        map.showsUserLocation = true
-//        map.delegate = context.coordinator // Set delegate to handle annotation view customization
-        return map
-    }
-    
-    func updateUIView(_ uiView: MKMapView, context: Context) {
-        uiView.removeAnnotations(uiView.annotations) // Clear existing annotations
-        
-        // Add new annotations
-        for annotation in annotations {
-            uiView.addAnnotation(annotation)
-        }
-        
-        //         Adjust the visible region of the map to fit all annotations
-        if let firstAnnotation = annotations.first {
-            var minLat = firstAnnotation.coordinate.latitude
-            var maxLat = firstAnnotation.coordinate.latitude
-            var minLon = firstAnnotation.coordinate.longitude
-            var maxLon = firstAnnotation.coordinate.longitude
-            
-            for annotation in annotations {
-                minLat = min(minLat, annotation.coordinate.latitude)
-                maxLat = max(maxLat, annotation.coordinate.latitude)
-                minLon = min(minLon, annotation.coordinate.longitude)
-                maxLon = max(maxLon, annotation.coordinate.longitude)
-            }
-            
-            let span = MKCoordinateSpan(latitudeDelta: maxLat - minLat, longitudeDelta: maxLon - minLon)
-            let center = CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2, longitude: (minLon + maxLon) / 2)
-            let region = MKCoordinateRegion(center: center, span: span)
-            
-            uiView.setRegion(region, animated: true)
-        }
-    }
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator()
-    }
-    
-    class Coordinator: NSObject, MKMapViewDelegate {
-        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-            guard annotation is MKPointAnnotation else { return nil }
-            
-            let identifier = "customAnnotation"
-            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? CustomAnnotationView
-            if annotationView == nil {
-                annotationView = CustomAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            } else {
-                annotationView?.annotation = annotation
-            }
-            return annotationView
-        }
-    }
-}
-
-class CustomAnnotationView: MKAnnotationView {
-    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
-        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-                setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-        private func setup() {
-            if let annotation = annotation as? MKPointAnnotation,
-               let imageName = annotation.subtitle {
-                print("hello \(imageName)")
-                self.image = UIImage(named: imageName)
-            } else {
-                self.image = UIImage(named: "defaultAnnotationImage")
-            }
-            self.canShowCallout = true
-        }
-}

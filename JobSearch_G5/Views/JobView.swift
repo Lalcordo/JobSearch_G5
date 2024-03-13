@@ -43,7 +43,7 @@ struct JobView: View {
                 }
             }
             .onAppear {
-                viewModel.fetchJobs(industry: industry)
+//                viewModel.fetchJobs(industry: industry)
             }
         }
     }

@@ -11,17 +11,20 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
+
+
 @main
 struct JobSearch_G5App: App {
     
     //need to add this for initializing Firebase
     init() {
-            FirebaseApp.configure()
-        }
-    
+        FirebaseApp.configure()
+    }
+    let jobController = JobController(jobService: JobService())
     var body: some Scene {
         WindowGroup {
             SignInView()
+            
         }
     }
 }
