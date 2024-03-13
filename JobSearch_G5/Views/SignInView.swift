@@ -13,8 +13,8 @@ struct SignInView: View {
     
     //UI variables
     @State private var rememberMe = false
-    @State private var emailFromUI: String = "julius@email.com"
-    @State private var passwordFromUI: String = "123456"
+    @State private var emailFromUI: String = ""
+    @State private var passwordFromUI: String = ""
     
     //Helper Variables
     @State private var selectedLink: Int? = 0
