@@ -18,74 +18,146 @@ struct ProfileView: View {
     @State private var showPicker : Bool = false
     @State private var isUsingCamera : Bool = false
     
+    //TextField Variables
+    @State private var firstNameFromUI: String = ""
+    @State private var lastNameFromUI: String = ""
+    
+    //Show Alert variables
+    @State private var showAlert: Bool = false
+    @State private var alertTitle = ""
+    @State private var resultMessage: String = ""
+    @State private var alertConfirmation: String = ""
+    
+    
     var body: some View {
-        Text("Welcome, \(fireAuthHelper.user?.email ?? "User")")
-        Text("Welcome, \(fireAuthHelper.user?.displayName ?? "")")
-        
-        VStack{
-            Image(uiImage: profileImage ?? UIImage(systemName: "person.fill")!)
-                .resizable()
-                .frame(width: 150, height: 150, alignment: .leading)
-            
-            Button(action:{
-                
-                if self.permissionGranted {
-                    self.showSheet = true
-                } else {
-                    self.requestPermission()
-                    //alternatively, show the message for user that permissions aren't granted
-                }
-                
-            }){
-                Text("Upload Picture")
+        Form {
+            VStack{
+                TextField("First Name", text: $firstNameFromUI)
                     .padding()
-            }
-            .actionSheet(isPresented: self.$showSheet){
-                ActionSheet(title: Text("Select Photo"),
-                            message: Text("Choose profile picture to upload"),
-                            buttons: [
-                .default(Text("Choose photo from library")){
-                    //show library picture picker
-                    
-                    //check if the source is available
-                    guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
-                        print(#function, "The PhotoLibrary isn't available")
+                    .overlay(RoundedRectangle(cornerRadius: 10.0).strokeBorder(Color.black, style: StrokeStyle(lineWidth: 1.0)))
+                    .padding()
+                    .autocorrectionDisabled()
+                
+                TextField("Last Name", text: $lastNameFromUI)
+                    .padding()
+                    .overlay(RoundedRectangle(cornerRadius: 10.0).strokeBorder(Color.black, style: StrokeStyle(lineWidth: 1.0)))
+                    .padding()
+                    .autocorrectionDisabled()
+                
+                Spacer()
+                Button {
+                    if firstNameFromUI.isEmpty || lastNameFromUI.isEmpty{
+                        
+                        showAlert = true
+                        alertTitle = "CAUTION!"
+                        resultMessage = "Fields cannot be Empty"
+                        alertConfirmation = "TRY AGAIN"
+                        
                         return
+                    } else {
+                        fireAuthHelper.updateProfile(firstName: firstNameFromUI, lastName: lastNameFromUI)
+                        showAlert = true
+                        alertTitle = "SUCCESS"
+                        resultMessage = "Your name has been updated!"
+                        alertConfirmation = "CONFIRM"
                     }
-                    
-                    
-                    self.isUsingCamera = false
-                    self.showPicker = true
-                    
-                },
-                .default(Text("Take a new pic from Camera")){
-                    //open camera
-                    CameraPicker(selectedImage: self.$profileImage)
-                    
-                    //check if the source is available
-                    guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-                        print(#function, "Camera isn't available")
-                        return
-                    }
-                    
-                    self.isUsingCamera = true
-                    self.showPicker = true
-                },
-              .cancel()
-             ])
+                } label: {
+                    Text("Update")
+                }
+                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.blue/*@END_MENU_TOKEN@*/)
+                .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
+                .cornerRadius(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
+                .alert(isPresented: $showAlert){
+                    Alert(title: Text("\(alertTitle)"),
+                          message: Text("\(resultMessage)"),
+                          dismissButton: .default(Text("\(alertConfirmation)")){})
+                }
             }
-        }//VStack
-        .fullScreenCover(isPresented: self.$showPicker){
-            if (isUsingCamera){
-                //open camera Picker
-            }else{
-                //open library picker
-                LibraryPicker(selectedImage: self.$profileImage)
+        }
+        
+        
+        
+        Spacer()
+        
+        HStack {
+            VStack{
+                
+                
+                
+                Button {
+                    if self.permissionGranted {
+                        self.showSheet = true
+                    } else {
+                        self.requestPermission()
+                        //alternatively, show the message for user that permissions aren't granted
+                    }
+                } label: {
+                    Image(uiImage: profileImage ?? UIImage(systemName: "person.fill")!)
+                        .resizable()
+                        .frame(width: 150, height: 150, alignment: .leading)
+                    
+                }
+                .actionSheet(isPresented: self.$showSheet){
+                    ActionSheet(title: Text("Select Photo"),
+                                message: Text("Choose profile picture to upload"),
+                                buttons: [
+                                    .default(Text("Choose photo from library")){
+                                        //show library picture picker
+                                        
+                                        //check if the source is available
+                                        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
+                                            print(#function, "The PhotoLibrary isn't available")
+                                            return
+                                        }
+                                        
+                                        
+                                        self.isUsingCamera = false
+                                        self.showPicker = true
+                                        
+                                    },
+                                    .default(Text("Take a new pic from Camera")){
+                                        //open camera
+                                        CameraPicker(selectedImage: self.$profileImage)
+                                        
+                                        //check if the source is available
+                                        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+                                            print(#function, "Camera isn't available")
+                                            return
+                                        }
+                                        
+                                        self.isUsingCamera = true
+                                        self.showPicker = true
+                                    },
+                                    .cancel()
+                                ])
+                }
+            }//VStack
+            .fullScreenCover(isPresented: self.$showPicker){
+                if (isUsingCamera){
+                    //open camera Picker
+                }else{
+                    //open library picker
+                    LibraryPicker(selectedImage: self.$profileImage)
+                }
+            }
+            VStack{
+                Text("\(fireAuthHelper.user?.displayName ?? "")")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                
+                Text("Email: \(fireAuthHelper.user?.email ?? "User")")
+                    .font(.subheadline)
+                    .italic()
+                
+                
             }
         }
         .onAppear{
             self.checkPermission()
         }
+        
+        Spacer()
     }
     
     private func checkPermission(){
