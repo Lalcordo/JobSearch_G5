@@ -20,28 +20,34 @@
 - SwiftyJSON
 - AlamoFire
 
-## Screenshots
-
-<div style='display: flex'>
-<img src='./1.png' alt='tokyo' width='200' />
-<img src='./2.png' alt='weather-history-plain' width='200' />
-<img src='./3.png' alt='weather-history-plain' width='200' />
-</div>
-
-<div style='display: flex'>
-<img src='./6.png' alt='weather-history-plain' width='200' />
-  <img src='./8.png' alt='weather-history-plain' width='200' />
-<img src='./9.png' alt='weather-history-plain' width='200' />
-</div>
-
-<div style='display: flex'>
-<img src='./10.png' alt='tokyo' width='200' />
-<img src='./12.png' alt='weather-history-plain' width='200' />
-<img src='./13.png' alt='tokyo' width='200' />
-  
-</div>
-
 # Author
 - Julius Dejon
 - Leo Alcordo
 - Gagan Grewal
+
+# Screenshots
+
+<div style='display: flex'>
+<img src='JobSearch_G5/Assets.xcassets/Screenshots/1.imageset/1.png' alt='tokyo' width='200' />
+<img src='JobSearch_G5/Assets.xcassets/Screenshots/2.imageset/2.png' alt='tokyo' width='200' />
+<img src='JobSearch_G5/Assets.xcassets/Screenshots/3.imageset/3.png' alt='tokyo' width='200' />
+<img src='JobSearch_G5/Assets.xcassets/Screenshots/4.imageset/4.png' alt='tokyo' width='200' />
+</div>
+
+<div style='display: flex'>
+<img src='JobSearch_G5/Assets.xcassets/Screenshots/5.imageset/5.png' alt='tokyo' width='200' />
+<img src='JobSearch_G5/Assets.xcassets/Screenshots/6.imageset/6.png' alt='tokyo' width='200' />
+<img src='JobSearch_G5/Assets.xcassets/Screenshots/7.imageset/7.png' alt='tokyo' width='200' />
+<img src='JobSearch_G5/Assets.xcassets/Screenshots/8.imageset/8.png' alt='tokyo' width='200' />
+</div>
+
+<div style='display: flex'>
+<img src='JobSearch_G5/Assets.xcassets/Screenshots/9.imageset/9.png' alt='tokyo' width='200' />
+<img src='JobSearch_G5/Assets.xcassets/Screenshots/10.imageset/10.png' alt='tokyo' width='200' />
+<img src='JobSearch_G5/Assets.xcassets/Screenshots/11.imageset/11.png' alt='tokyo' width='200' />
+<img src='JobSearch_G5/Assets.xcassets/Screenshots/12.imageset/12.png' alt='tokyo' width='200' />
+</div>
+
+<div style='display: flex'>
+<img src='JobSearch_G5/Assets.xcassets/Screenshots/13.imageset/13.png' alt='tokyo' width='200' />
+</div>
