@@ -7,35 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A7D1D8D2BA2053900BAE2F3 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D1D8C2BA2053900BAE2F3 /* CameraPicker.swift */; };
+		0A7D1D8F2BA2054400BAE2F3 /* LibraryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D1D8E2BA2054400BAE2F3 /* LibraryPicker.swift */; };
 		0AC4D1FD2B9CF843004F8576 /* JobSearch_G5App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D1FC2B9CF843004F8576 /* JobSearch_G5App.swift */; };
-		0AC4D1FF2B9CF843004F8576 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D1FE2B9CF843004F8576 /* ContentView.swift */; };
+		0AC4D1FF2B9CF843004F8576 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D1FE2B9CF843004F8576 /* SignInView.swift */; };
 		0AC4D2012B9CF845004F8576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AC4D2002B9CF845004F8576 /* Assets.xcassets */; };
 		0AC4D2042B9CF845004F8576 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AC4D2032B9CF845004F8576 /* Preview Assets.xcassets */; };
-		DA52FCBC2B9D049900006682 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DA52FCBB2B9D049900006682 /* Alamofire */; };
-		DA52FCBE2B9D049900006682 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = DA52FCBD2B9D049900006682 /* AlamofireDynamic */; };
-		DA52FCC12B9D04A600006682 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DA52FCC02B9D04A600006682 /* SwiftyJSON */; };
-		DA52FCC32B9D052C00006682 /* JobService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52FCC22B9D052C00006682 /* JobService.swift */; };
-		DA52FCC62B9D059F00006682 /* JobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52FCC52B9D059F00006682 /* JobViewModel.swift */; };
-		DA52FCC82B9D05CC00006682 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52FCC72B9D05CC00006682 /* Job.swift */; };
-		DA52FCCA2B9D060800006682 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52FCC92B9D060800006682 /* HomePage.swift */; };
-		DA52FCCC2B9D065800006682 /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52FCCB2B9D065800006682 /* JobView.swift */; };
-		DA52FCCE2B9D09B100006682 /* JobController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52FCCD2B9D09B100006682 /* JobController.swift */; };
-		DA52FCD02B9D1BA600006682 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52FCCF2B9D1BA600006682 /* MapView.swift */; };
+		0AC4D20B2B9E0FF6004F8576 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D20A2B9E0FF6004F8576 /* HomeScreen.swift */; };
+		0AC4D20D2B9E1071004F8576 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D20C2B9E1071004F8576 /* SignUpView.swift */; };
+		0AC4D2522B9E1A9E004F8576 /* SearchJobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2512B9E1A9E004F8576 /* SearchJobView.swift */; };
+		0AC4D2542B9E1B10004F8576 /* BookmarkedJobsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2532B9E1B10004F8576 /* BookmarkedJobsView.swift */; };
+		0AC4D2562B9E1B9D004F8576 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2552B9E1B9D004F8576 /* ProfileView.swift */; };
+		0AC4D2B12B9E3967004F8576 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC4D2B02B9E3967004F8576 /* GoogleService-Info.plist */; };
+		0AC4D2B32B9E408B004F8576 /* FireAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2B22B9E408B004F8576 /* FireAuthHelper.swift */; };
+		0AC4D2DA2B9FE208004F8576 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2D92B9FE208004F8576 /* Job.swift */; };
+		0AC4D2DD2B9FE229004F8576 /* JobService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2DC2B9FE229004F8576 /* JobService.swift */; };
+		0AC4D2DF2B9FE268004F8576 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2DE2B9FE268004F8576 /* MapView.swift */; };
+		0AC4D2E12B9FE27F004F8576 /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2E02B9FE27E004F8576 /* JobView.swift */; };
+		0AC4D2E32B9FE28C004F8576 /* JobController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2E22B9FE28C004F8576 /* JobController.swift */; };
+		0AC4D2E52B9FE29C004F8576 /* JobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4D2E42B9FE29C004F8576 /* JobViewModel.swift */; };
+		0AC4D2E82B9FE2AF004F8576 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0AC4D2E72B9FE2AF004F8576 /* Alamofire */; };
+		0AC4D2EA2B9FE2AF004F8576 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0AC4D2E92B9FE2AF004F8576 /* AlamofireDynamic */; };
+		0AC4D2ED2B9FE2C1004F8576 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0AC4D2EC2B9FE2C1004F8576 /* SwiftyJSON */; };
+		C2536BEE2BA2398F00E1190C /* SavedJobsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2536BED2BA2398F00E1190C /* SavedJobsView.swift */; };
+		DA52FCFB2B9FDFA000006682 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DA52FCFA2B9FDFA000006682 /* FirebaseStorage */; };
+		DA52FCFD2B9FDFA800006682 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DA52FCFC2B9FDFA800006682 /* FirebaseFirestore */; };
+		DA52FCFF2B9FDFB000006682 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DA52FCFE2B9FDFB000006682 /* FirebaseFirestoreSwift */; };
+		DA648E192B9FF2F20048042D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DA648E182B9FF2F20048042D /* FirebaseAuth */; };
+		DA7BA08B2BA18C81003AA924 /* JobDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7BA08A2BA18C81003AA924 /* JobDetailsView.swift */; };
+		DA7BA08D2BA227A5003AA924 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7BA08C2BA227A5003AA924 /* FilterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A7D1D8C2BA2053900BAE2F3 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
+		0A7D1D8E2BA2054400BAE2F3 /* LibraryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPicker.swift; sourceTree = "<group>"; };
 		0AC4D1F92B9CF843004F8576 /* JobSearch_G5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobSearch_G5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AC4D1FC2B9CF843004F8576 /* JobSearch_G5App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearch_G5App.swift; sourceTree = "<group>"; };
-		0AC4D1FE2B9CF843004F8576 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0AC4D1FE2B9CF843004F8576 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		0AC4D2002B9CF845004F8576 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AC4D2032B9CF845004F8576 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		DA52FCC22B9D052C00006682 /* JobService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobService.swift; sourceTree = "<group>"; };
-		DA52FCC52B9D059F00006682 /* JobViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewModel.swift; sourceTree = "<group>"; };
-		DA52FCC72B9D05CC00006682 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
-		DA52FCC92B9D060800006682 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
-		DA52FCCB2B9D065800006682 /* JobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
-		DA52FCCD2B9D09B100006682 /* JobController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobController.swift; sourceTree = "<group>"; };
-		DA52FCCF2B9D1BA600006682 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		0AC4D20A2B9E0FF6004F8576 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		0AC4D20C2B9E1071004F8576 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		0AC4D2512B9E1A9E004F8576 /* SearchJobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchJobView.swift; sourceTree = "<group>"; };
+		0AC4D2532B9E1B10004F8576 /* BookmarkedJobsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedJobsView.swift; sourceTree = "<group>"; };
+		0AC4D2552B9E1B9D004F8576 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		0AC4D2B02B9E3967004F8576 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0AC4D2B22B9E408B004F8576 /* FireAuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAuthHelper.swift; sourceTree = "<group>"; };
+		0AC4D2D92B9FE208004F8576 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		0AC4D2DC2B9FE229004F8576 /* JobService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobService.swift; sourceTree = "<group>"; };
+		0AC4D2DE2B9FE268004F8576 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		0AC4D2E02B9FE27E004F8576 /* JobView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
+		0AC4D2E22B9FE28C004F8576 /* JobController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobController.swift; sourceTree = "<group>"; };
+		0AC4D2E42B9FE29C004F8576 /* JobViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobViewModel.swift; sourceTree = "<group>"; };
+		C2536BED2BA2398F00E1190C /* SavedJobsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedJobsView.swift; sourceTree = "<group>"; };
+		DA7BA08A2BA18C81003AA924 /* JobDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsView.swift; sourceTree = "<group>"; };
+		DA7BA08C2BA227A5003AA924 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,9 +69,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA52FCC12B9D04A600006682 /* SwiftyJSON in Frameworks */,
-				DA52FCBC2B9D049900006682 /* Alamofire in Frameworks */,
-				DA52FCBE2B9D049900006682 /* AlamofireDynamic in Frameworks */,
+				0AC4D2E82B9FE2AF004F8576 /* Alamofire in Frameworks */,
+				0AC4D2ED2B9FE2C1004F8576 /* SwiftyJSON in Frameworks */,
+				0AC4D2EA2B9FE2AF004F8576 /* AlamofireDynamic in Frameworks */,
+				DA52FCFB2B9FDFA000006682 /* FirebaseStorage in Frameworks */,
+				DA52FCFD2B9FDFA800006682 /* FirebaseFirestore in Frameworks */,
+				DA648E192B9FF2F20048042D /* FirebaseAuth in Frameworks */,
+				DA52FCFF2B9FDFB000006682 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +87,7 @@
 			children = (
 				0AC4D1FB2B9CF843004F8576 /* JobSearch_G5 */,
 				0AC4D1FA2B9CF843004F8576 /* Products */,
+				DA52FCF72B9FDF9A00006682 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,13 +102,12 @@
 		0AC4D1FB2B9CF843004F8576 /* JobSearch_G5 */ = {
 			isa = PBXGroup;
 			children = (
-				DA52FCC42B9D059000006682 /* ViewModels */,
-				DA52FCB92B9D039A00006682 /* Controllers */,
-				DA52FCB82B9D039600006682 /* Views */,
-				DA52FCB72B9D039000006682 /* Models */,
-				DA52FCB62B9D034800006682 /* Services */,
+				0AC4D2DB2B9FE21A004F8576 /* Services */,
+				0AC4D2D62B9FE113004F8576 /* Models */,
+				0AC4D2D72B9FE11F004F8576 /* Views */,
+				0AC4D2D82B9FE125004F8576 /* Controllers */,
+				0AC4D2B02B9E3967004F8576 /* GoogleService-Info.plist */,
 				0AC4D1FC2B9CF843004F8576 /* JobSearch_G5App.swift */,
-				0AC4D1FE2B9CF843004F8576 /* ContentView.swift */,
 				0AC4D2002B9CF845004F8576 /* Assets.xcassets */,
 				0AC4D2022B9CF845004F8576 /* Preview Content */,
 			);
@@ -92,46 +122,57 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		DA52FCB62B9D034800006682 /* Services */ = {
+		0AC4D2D62B9FE113004F8576 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DA52FCC22B9D052C00006682 /* JobService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		DA52FCB72B9D039000006682 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				DA52FCC72B9D05CC00006682 /* Job.swift */,
+				0AC4D2D92B9FE208004F8576 /* Job.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		DA52FCB82B9D039600006682 /* Views */ = {
+		0AC4D2D72B9FE11F004F8576 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DA52FCC92B9D060800006682 /* HomePage.swift */,
-				DA52FCCB2B9D065800006682 /* JobView.swift */,
-				DA52FCCF2B9D1BA600006682 /* MapView.swift */,
+				0AC4D2E42B9FE29C004F8576 /* JobViewModel.swift */,
+				0AC4D2DE2B9FE268004F8576 /* MapView.swift */,
+				0AC4D1FE2B9CF843004F8576 /* SignInView.swift */,
+				0AC4D2E02B9FE27E004F8576 /* JobView.swift */,
+				0AC4D20A2B9E0FF6004F8576 /* HomeScreen.swift */,
+				0AC4D20C2B9E1071004F8576 /* SignUpView.swift */,
+				0AC4D2512B9E1A9E004F8576 /* SearchJobView.swift */,
+				0AC4D2532B9E1B10004F8576 /* BookmarkedJobsView.swift */,
+				0AC4D2552B9E1B9D004F8576 /* ProfileView.swift */,
+				DA7BA08A2BA18C81003AA924 /* JobDetailsView.swift */,
+				DA7BA08C2BA227A5003AA924 /* FilterView.swift */,
+				C2536BED2BA2398F00E1190C /* SavedJobsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		DA52FCB92B9D039A00006682 /* Controllers */ = {
+		0AC4D2D82B9FE125004F8576 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DA52FCCD2B9D09B100006682 /* JobController.swift */,
+				0AC4D2B22B9E408B004F8576 /* FireAuthHelper.swift */,
+				0AC4D2E22B9FE28C004F8576 /* JobController.swift */,
+				0A7D1D8C2BA2053900BAE2F3 /* CameraPicker.swift */,
+				0A7D1D8E2BA2054400BAE2F3 /* LibraryPicker.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		DA52FCC42B9D059000006682 /* ViewModels */ = {
+		0AC4D2DB2B9FE21A004F8576 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				DA52FCC52B9D059F00006682 /* JobViewModel.swift */,
+				0AC4D2DC2B9FE229004F8576 /* JobService.swift */,
 			);
-			path = ViewModels;
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DA52FCF72B9FDF9A00006682 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,9 +192,13 @@
 			);
 			name = JobSearch_G5;
 			packageProductDependencies = (
-				DA52FCBB2B9D049900006682 /* Alamofire */,
-				DA52FCBD2B9D049900006682 /* AlamofireDynamic */,
-				DA52FCC02B9D04A600006682 /* SwiftyJSON */,
+				DA52FCFA2B9FDFA000006682 /* FirebaseStorage */,
+				DA52FCFC2B9FDFA800006682 /* FirebaseFirestore */,
+				DA52FCFE2B9FDFB000006682 /* FirebaseFirestoreSwift */,
+				0AC4D2E72B9FE2AF004F8576 /* Alamofire */,
+				0AC4D2E92B9FE2AF004F8576 /* AlamofireDynamic */,
+				0AC4D2EC2B9FE2C1004F8576 /* SwiftyJSON */,
+				DA648E182B9FF2F20048042D /* FirebaseAuth */,
 			);
 			productName = JobSearch_G5;
 			productReference = 0AC4D1F92B9CF843004F8576 /* JobSearch_G5.app */;
@@ -184,8 +229,9 @@
 			);
 			mainGroup = 0AC4D1F02B9CF843004F8576;
 			packageReferences = (
-				DA52FCBA2B9D049900006682 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				DA52FCBF2B9D04A600006682 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				0AC4D2A52B9E3290004F8576 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0AC4D2E62B9FE2AE004F8576 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0AC4D2EB2B9FE2C0004F8576 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 0AC4D1FA2B9CF843004F8576 /* Products */;
 			projectDirPath = "";
@@ -203,6 +249,7 @@
 			files = (
 				0AC4D2042B9CF845004F8576 /* Preview Assets.xcassets in Resources */,
 				0AC4D2012B9CF845004F8576 /* Assets.xcassets in Resources */,
+				0AC4D2B12B9E3967004F8576 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,15 +260,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA52FCC62B9D059F00006682 /* JobViewModel.swift in Sources */,
-				DA52FCCC2B9D065800006682 /* JobView.swift in Sources */,
-				DA52FCCA2B9D060800006682 /* HomePage.swift in Sources */,
-				0AC4D1FF2B9CF843004F8576 /* ContentView.swift in Sources */,
-				DA52FCC32B9D052C00006682 /* JobService.swift in Sources */,
-				DA52FCCE2B9D09B100006682 /* JobController.swift in Sources */,
+				0AC4D1FF2B9CF843004F8576 /* SignInView.swift in Sources */,
+				0AC4D2DD2B9FE229004F8576 /* JobService.swift in Sources */,
+				0A7D1D8F2BA2054400BAE2F3 /* LibraryPicker.swift in Sources */,
+				C2536BEE2BA2398F00E1190C /* SavedJobsView.swift in Sources */,
+				0AC4D2E52B9FE29C004F8576 /* JobViewModel.swift in Sources */,
+				0AC4D2542B9E1B10004F8576 /* BookmarkedJobsView.swift in Sources */,
+				0A7D1D8D2BA2053900BAE2F3 /* CameraPicker.swift in Sources */,
+				0AC4D2DF2B9FE268004F8576 /* MapView.swift in Sources */,
+				0AC4D20D2B9E1071004F8576 /* SignUpView.swift in Sources */,
+				0AC4D2522B9E1A9E004F8576 /* SearchJobView.swift in Sources */,
+				0AC4D2E12B9FE27F004F8576 /* JobView.swift in Sources */,
+				0AC4D2DA2B9FE208004F8576 /* Job.swift in Sources */,
 				0AC4D1FD2B9CF843004F8576 /* JobSearch_G5App.swift in Sources */,
-				DA52FCD02B9D1BA600006682 /* MapView.swift in Sources */,
-				DA52FCC82B9D05CC00006682 /* Job.swift in Sources */,
+				0AC4D2E32B9FE28C004F8576 /* JobController.swift in Sources */,
+				0AC4D2562B9E1B9D004F8576 /* ProfileView.swift in Sources */,
+				DA7BA08D2BA227A5003AA924 /* FilterView.swift in Sources */,
+				DA7BA08B2BA18C81003AA924 /* JobDetailsView.swift in Sources */,
+				0AC4D20B2B9E0FF6004F8576 /* HomeScreen.swift in Sources */,
+				0AC4D2B32B9E408B004F8576 /* FireAuthHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +414,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"JobSearch_G5/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs to access Camera.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs to access Photo Library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -386,6 +445,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"JobSearch_G5/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs to access Camera.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs to access Photo Library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -429,7 +490,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DA52FCBA2B9D049900006682 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		0AC4D2A52B9E3290004F8576 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.22.1;
+			};
+		};
+		0AC4D2E62B9FE2AE004F8576 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -437,9 +506,9 @@
 				minimumVersion = 5.9.0;
 			};
 		};
-		DA52FCBF2B9D04A600006682 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+		0AC4D2EB2B9FE2C0004F8576 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.1;
@@ -448,20 +517,40 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DA52FCBB2B9D049900006682 /* Alamofire */ = {
+		0AC4D2E72B9FE2AF004F8576 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DA52FCBA2B9D049900006682 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 0AC4D2E62B9FE2AE004F8576 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		DA52FCBD2B9D049900006682 /* AlamofireDynamic */ = {
+		0AC4D2E92B9FE2AF004F8576 /* AlamofireDynamic */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DA52FCBA2B9D049900006682 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 0AC4D2E62B9FE2AE004F8576 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;
 		};
-		DA52FCC02B9D04A600006682 /* SwiftyJSON */ = {
+		0AC4D2EC2B9FE2C1004F8576 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DA52FCBF2B9D04A600006682 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = 0AC4D2EB2B9FE2C0004F8576 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		DA52FCFA2B9FDFA000006682 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AC4D2A52B9E3290004F8576 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		DA52FCFC2B9FDFA800006682 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AC4D2A52B9E3290004F8576 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		DA52FCFE2B9FDFB000006682 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AC4D2A52B9E3290004F8576 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		DA648E182B9FF2F20048042D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AC4D2A52B9E3290004F8576 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

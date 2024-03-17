@@ -6,12 +6,24 @@
 //
 
 import SwiftUI
+import FirebaseCore
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
+
+
 
 @main
 struct JobSearch_G5App: App {
+    @StateObject var jobViewModel = JobViewModel()
+    //need to add this for initializing Firebase
+    init() {
+        FirebaseApp.configure()
+    }
+    let jobController = JobController(jobService: JobService())
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SignInView().environmentObject(jobViewModel)
         }
     }
 }

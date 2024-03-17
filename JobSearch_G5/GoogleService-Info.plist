@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBcO5D6GZZS4keL-yijT4VE3rgdxzieRkc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>775048747258</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Test.JobSearch-G5</string>
+	<key>PROJECT_ID</key>
+	<string>jobsearchg5</string>
+	<key>STORAGE_BUCKET</key>
+	<string>jobsearchg5.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:775048747258:ios:29ee88f4330ce7d3aad143</string>
+</dict>
+</plist>
